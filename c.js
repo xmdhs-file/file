@@ -1,1 +1,27 @@
-var gz = function (a, b, c) { function d(a, b) { return ['著作权归xmdhs所有。', '商业转载请联系作者获得授权，非商业转载请注明出处。', '作者：' + b, '链接：' + a, '来源：xmdhs.ml', '', ''] } function f(a, b, c) { return '<div>' + d(b, c).join('<br />') + a + '</div>' } function g(a) { var g = z.Xq(), m = g && (0, z.ib) (g.Gd()); if (m && !(32 > m.length)) { if ('object' === typeof a.originalEvent.clipboardData && (a.originalEvent.clipboardData.setData('text/html', f(g.Of(), b, c)), a.originalEvent.clipboardData.setData('text/plain', d(b, c).join('\n') + m), 0 < a.originalEvent.clipboardData.getData('text/plain').length)) { a.preventDefault(); return } if (window.getSelection) { a = g.Of(); var n = (0, window.$) (f(a, b, c)).css({ position: 'fixed', left: '-9999px' }).appendTo('body'); window.getSelection().selectAllChildren(n.get(0)); (0, window.setTimeout) (function () { g.select(); n.remove() }, 200) } } } a && b && c && (z.Fa(b, 'http') || (b = window.location.protocol + '//' + window.location.host + b), a.on('copy', g)) };
+        function setClipboardText(event){   
+            event.preventDefault();  
+            var node = document.createElement('div');  
+            node.appendChild(window.getSelection().getRangeAt(0).cloneContents());  
+            var htmlData = '<div>著作权归xmdhs所有。<br />'   
+                            + '商业转载请联系作者获得授权，非商业转载请注明出处。<br />'  
+                            + '作者：xmdhs<br />链接：xmdhs.ml<br />'  
+                            + '来源：xmdhs.ml<br /><br />'   
+                            + node.innerHTML   
+                            + '</div>';  
+            var textData = '著作权归作者所有。\n'   
+                            + '商业转载请联系作者获得授权，非商业转载请注明出处。\n'  
+                            + '作者：xmdhs\n链接：xmdhs.ml\n'  
+                            + '来源：xmdhs.ml\n\n'   
+                            + window.getSelection().getRangeAt(0);  
+            if(event.clipboardData){    
+                event.clipboardData.setData("text/html", htmlData);   
+                event.clipboardData.setData("text/plain",textData);  
+            }  
+            else if(window.clipboardData){    
+                return window.clipboardData.setData("text", textData);    
+            }    
+        };    
+        var answer = document.getElementById("answer");  
+        answer.addEventListener('copy',function(e){  
+            setClipboardText(e);  
+        });  
