@@ -1,6 +1,6 @@
 config = {
     blog_name: "xmdhs",
-    github_username: "xmdhs", // github 账号名
+    github_username: "xmdhss", // github 账号名
     github_repo: "xmdhs.github.io",      // github 建立的 repo 名
     per_page: 10,             // 首页每次载入文章列表数量
 
