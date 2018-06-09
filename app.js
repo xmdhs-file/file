@@ -12,7 +12,7 @@ function gotoHome()
             removeChildById(postlist, "more");
             var newMore = document.createElement("img");
             newMore.id = "more";
-            newMore.src = "littlewait.gif";
+            newMore.src = "https://i.loli.net/2018/06/09/5b1b377badb91.gif";
             postlist.appendChild(newMore);
         }
         getJSON(getPageUrl(page), function(data, headers) {
