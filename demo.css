@@ -1,3 +1,5 @@
+*{font-family: "宋体";}
+
 .column{
 	display: inline-block;
 	vertical-align: top;
@@ -5,4 +7,4 @@
 	margin-left:20px;
 }
 
-*{font-family: "黑体";}
+
