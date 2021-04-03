@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         查看评分
-// @version      0.0.5
+// @version      0.0.6
 // @include      https://www.mcbbs.net/pinfen
 // @author       xmdhs
 // @description  查看评分。
@@ -25,6 +25,7 @@
         } catch (error) {
             alert("请更新浏览器")
         }
+        window.t = false;
         async function fetchAndInstantiate() {
             const response = await fetch("https://cdn.jsdelivr.net/gh/xxmdhs/file/pinfen.wasm");
             const buffer = await response.arrayBuffer();
@@ -47,10 +48,9 @@
                 a.innerHTML = '<textarea id="confirmationText" class="text" cols="86" rows="20" name="confirmationText" style="width: 100%;overflow: auto;word-break: break-all;"></textarea>'
                 let b = document.getElementById("confirmationText");
                 b.value = v;
-                t = true
+                t = false;
             })
         }
-        var t = false;
         </script>
     </head>
     
@@ -73,6 +73,7 @@
         f.addEventListener("submit", function (event) {
             event.preventDefault();
             if (!t) {
+                t = true;
                 Form();
             } else {
                 alert("一次只能查询一个用户")
